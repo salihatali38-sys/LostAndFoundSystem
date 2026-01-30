@@ -5,15 +5,18 @@ import java.io.*;
 import java.util.List;
 
 public class FileRepository {
-    private final String fileName = "data.txt";
+    private final String FILE_NAME = "database.txt";
 
-    public void saveItems(List<Item> items) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+    // This is the method your Main class is currently missing!
+    public void saveAllItems(List<Item> items) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Item item : items) {
-                writer.println(item.toFileString());
+                // We'll write a simple string representation for now
+                writer.write(item.getDescription() + "," + item.getLocation());
+                writer.newLine();
             }
+            System.out.println("Successfully saved items to " + FILE_NAME);
         } catch (IOException e) {
-            // Proper Exception Handling as required by PDF [cite: 40]
             System.err.println("Error saving to file: " + e.getMessage());
         }
     }
