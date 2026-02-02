@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="lostfound.controller.DashboardController"
+      spacing="10" style="-fx-padding: 20;">
+
+    <Label fx:id="welcomeLabel" text="Welcome!" style="-fx-font-size: 16px;"/>
+
+    <HBox spacing="10">
+        <Button text="Add Item" onAction="#handleAddItem"/>
+        <Button text="Refresh" onAction="#loadItems"/>
+        <Button text="My Messages" onAction="#openMessages"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <TableView fx:id="itemTable" prefHeight="500">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+            <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="colDesc" text="Description" prefWidth="300"/>
+            <TableColumn fx:id="colPostedBy" text="Posted by" prefWidth="140"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="180" sortable="false"/>
+        </columns>
+    </TableView>
+</VBox>
