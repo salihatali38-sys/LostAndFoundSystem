@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="lostfound.controller.AdminDashboardController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <Label fx:id="welcomeLabel" text="Admin Dashboard" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Add Item" onAction="#handleAddItem"/>
+        <Button text="Refresh All Items" onAction="#loadItems"/>
+        <Button text="Manage Users (coming soon)" disable="true"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <TableView fx:id="itemTable" prefHeight="500">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+            <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="colDesc" text="Description" prefWidth="400"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Edit Selected" onAction="#handleEditItem"/>
+        <Button text="Delete Selected" onAction="#handleDeleteItem" style="-fx-background-color: #ff4444; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox>
